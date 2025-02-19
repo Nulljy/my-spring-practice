@@ -2,13 +2,22 @@ package Reload.tutorial.Services;
 
 import Reload.tutorial.Domain.Member;
 import Reload.tutorial.Repository.MemoryMemberRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class MemberService {
 
-    private final MemoryMemberRepository memberRepository = new MemoryMemberRepository();
+    private final MemoryMemberRepository memberRepository;
+
+    // 생성자 DI
+    @Autowired
+    public MemberService(MemoryMemberRepository memberRepository) {
+        this.memberRepository = memberRepository;
+    }
 
     public Long join(Member member) {
         // 중복 확인하기

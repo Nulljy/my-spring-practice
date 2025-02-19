@@ -1,6 +1,7 @@
 package Reload.tutorial.Repository;
 
 import Reload.tutorial.Domain.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +9,7 @@ import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository {
     // 속성
     // 아이디, 저장소
